@@ -1,0 +1,36 @@
+<style>
+</style>
+
+
+    <p class="bro" style="border-bottom:brown 1px solid">Bookshelf</p>
+    <div>
+        <p class="bro"></p>
+        <div id="main" class=""></div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        if(location.href.indexOf('worms.php')!==-1){
+            var aaa = name;
+            name = worm;
+
+        }
+        const data_bookshelf = {
+            name:name
+        }
+        if(location.href.indexOf('worms.php')!==-1){
+            name = aaa;
+        }
+         //Ajax（非同期通信）
+        axios.get('parts/bookshelf.php', {
+            params:data_bookshelf
+        })
+        .then(function (response) {
+            document.querySelector("#main").innerHTML=response.data;
+        }).catch(function (error) {
+            console.log(error);//通信Error
+        }).then(function () {
+            console.log("Last");//通信OK/Error後に処理を必ずさせたい場合
+        });
+    
+    </script>

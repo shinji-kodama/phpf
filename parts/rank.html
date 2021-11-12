@@ -1,0 +1,37 @@
+<style>
+</style>
+<p class="bro"><br>FAVORITE COUNT RANKING</p>
+<div style="width:100%;margin:8px auto;border:solid brown 1px;">
+    <p class="bro">Total count</p>
+    <div id="ranking_total" class=""></div>
+</div>
+<div style="width:100%;margin:8px auto;border:solid brown 1px;">
+    <p class="bro">Recent 1 month</p>
+    <div id="ranking_1m" class=""></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+
+    //送信データを用意 サーバーにデータを渡す場合、第２引数のparamsにオブジェクト変数を入れる
+   
+
+    //Ajax（非同期通信）
+    axios.get('parts/rank.php')
+    .then(function (response) {
+        document.querySelector("#ranking_total").innerHTML=response.data;
+    }).catch(function (error) {
+        console.log(error);//通信Error
+    }).then(function () {
+        console.log("Last");//通信OK/Error後に処理を必ずさせたい場合
+    });
+
+    axios.get('parts/rank_1m.php')
+    .then(function (response) {
+        document.querySelector("#ranking_1m").innerHTML=response.data;
+    }).catch(function (error) {
+        console.log(error);//通信Error
+    }).then(function () {
+        console.log("Last");//通信OK/Error後に処理を必ずさせたい場合
+    });
+
+</script>

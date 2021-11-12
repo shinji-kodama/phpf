@@ -1,0 +1,57 @@
+html{background-color:rgba(255,230,200,0.6)}
+body{margin:0px;}
+div.row{
+    position:relative;
+    border-bottom:1px solid rgb(156, 105, 105);
+    color:white;
+    /* height:32px */
+}
+legend{
+    font-family: 'Cinzel', serif;
+    color:rgb(156, 105, 105);
+}
+p{
+    text-align:center;
+    font-size:14px;
+    margin:4px;
+    font-family: 'Cinzel', serif;
+}
+div.bdr{
+    border-right:rgb(156, 105, 105) solid 1px;
+}
+div.hov, div.bro{
+    background-color:rgb(131, 70, 0);
+}
+div.hov:hover{
+    background-color:rgb(156, 105, 105);
+}
+div.thi{
+    height:36px
+}
+div.rela{
+    position:relative;
+}
+div.lbro{
+    background-color:rgba(255,230,200,0.6);
+}
+p.abs{
+    position:absolute;
+    top:50%;
+    transform:translate(-50%,-50%);
+}
+p.cent{left:50%;}
+p.righ{right:0px}
+p.bro{color:brown}
+p.bla{color:black}
+div.h32{height:32px;}
+
+div.flo{
+    background-color: #fff;;
+    width:100%;
+    margin:8px auto;
+    box-shadow: 10px 10px 10px 0 rbga(0,0,0,0.5);
+    border-radius:8px;
+}
+
+
+img{width:100%;height:100%}

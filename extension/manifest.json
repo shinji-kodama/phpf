@@ -1,0 +1,24 @@
+{
+    "manifest_version": 2,
+    "name": "Book registration for NEST_BOOKWORMS ",
+    "short_name": "book_reg",
+    "version": "1.0.0.0",
+    "description": "registration books for 'NEST for bookworms' from a book page in Amazon.co.jp",
+    "icons": {
+        "16": "book_16.png",
+        "48": "book_48.png",
+        "128": "book_128.png"
+    },
+    "browser_action": {
+        "default_icon": {
+            "48": "book_48.png"
+        },
+    "default_title": "BOOKREG for NEST",
+    "default_popup": "popup.html"
+    },
+    "options_page": "options.html",
+    "homepage_url": "https://jskm.sakura.ne.jp/phpf/login.php",
+    "content_security_policy": "script-src 'self'; object-src 'self'",
+    "permissions":["activeTab"]
+
+}

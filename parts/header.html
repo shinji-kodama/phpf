@@ -1,0 +1,44 @@
+    <div class="container-fluid">
+        <div class="row thi">
+            <div class="col-sm-12 bro rela">
+                <p class="abs cent">NEST FOR BOOKWORMS</p>
+                <p class="abs righ" id="mp">MyPage</p> 
+            </div>
+                
+        </div>
+        <div class="row">
+            <div id="home" class="col-sm-3 bdr hov">
+                <p>HOME</p>
+            </div>
+            <div id="books" class="col-sm-3 bdr hov">
+                <p>BOOKSHELF</p>
+            </div>
+            <div id="worms" class="col-sm-3 bdr hov">
+                <p>other WORMS</p>
+            </div>
+            <div id="comm" class="col-sm-3 hov">
+                <p>COMMUNITY</p>
+            </div>
+        </div>
+    </div>
+
+<script>
+document.getElementById('home').addEventListener('click',function(){
+    location.href = '../phpf/index.php';
+});
+document.getElementById('books').addEventListener('click',function(){
+    location.href = '../phpf/index.php?page=books';
+});
+document.getElementById('worms').addEventListener('click',function(){
+    location.href = '../phpf/worms.php';
+});
+document.getElementById('comm').addEventListener('click',function(){
+    location.href = '../phpf/communities.php';
+});
+document.getElementById('mp').addEventListener('click',function(){
+    location.href = '../phpf/worms.php?worm='+name;
+});
+
+
+
+</script>

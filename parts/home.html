@@ -1,0 +1,29 @@
+<style>
+</style>
+
+
+    <p class="bro">BOOKS read by other bookworms</p>
+    <div>
+        <p class="bro"></p>
+        <div id="main" class=""></div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const data = {
+            name:name
+        }
+
+        //Ajax（非同期通信）
+        axios.get('parts/home.php', {
+            params:data
+        })
+        .then(function (response) {
+            document.querySelector("#main").innerHTML=response.data;
+        }).catch(function (error) {
+            console.log(error);//通信Error
+        }).then(function () {
+            console.log("Last");//通信OK/Error後に処理を必ずさせたい場合
+        });
+    
+    </script>

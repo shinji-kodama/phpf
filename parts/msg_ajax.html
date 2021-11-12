@@ -1,0 +1,96 @@
+<style>
+textarea.msg{
+    width:90%;
+    height:24px;
+    margin:0 auto;
+    background-color:white;
+    border-radius:8px;
+    color:brown;
+    text-align: left;
+    font-family: 'New Tegomin', serif;
+    height:1.5rem;
+    padding-left:8px;
+    padding-top:4px;
+    font-size:14px;
+
+}
+button#send{
+    background-color:rgba(156, 105, 105,1);
+    width:40px;
+    border-radius:8px;
+    font-size:14px;
+    text-align: center;
+    font-family: 'New Tegomin', serif;
+}   
+
+</style>
+
+
+<div id="msg_worm" style="height:auto;max-height:400px;overflow:auto;"></div>
+<div style="display:flex;margin:8px">
+    <textarea id="msg_box" class="msg" type="text"></textarea>
+    <button id="send">送信</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+
+let data_rev = {};
+
+function load_msg(){
+    data_rev = {
+        name:name,
+        worm:worm,
+    }
+
+    ajax_msg();
+    setTimeout(() => {
+        load_msg();
+    },3000);
+}
+
+function send_msg(){
+    const msg_box = document.getElementById('msg_box');
+    let msg = msg_box.value;
+    data_rev = {
+        name:name,
+        worm:worm,
+        msg:msg
+    }
+    ajax_msg();
+    document.getElementById('msg_box').value = null;
+}
+
+function ajax_msg(){
+     //Ajax（非同期通信）
+    console.log(data_rev);
+     axios.get('parts/msg_ajax.php', {
+        params:data_rev
+    })
+    .then(function (response) {
+        document.querySelector("#msg_worm").innerHTML=response.data;
+        if(data_rev.msg){
+            const messagesArea = document.getElementById('msg_worm');
+            messagesArea.scrollTop = messagesArea.scrollHeight;
+        }    
+    }).catch(function (error) {
+        console.log(error);//通信Error
+    }).then(function () {
+        console.log("Last");//通信OK/Error後に処理を必ずさせたい場合
+    });
+
+}
+
+window.onload = load_msg();
+// setInterval(() => {
+//     load_msg();
+// }, 3000);
+document.getElementById('send').addEventListener('click',send_msg);
+document.getElementById('msg_box').addEventListener('keydown',function(e){
+    if (e.keyCode == 13) {
+        send_msg();
+    }
+});
+
+
+</script>

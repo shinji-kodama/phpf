@@ -1,0 +1,26 @@
+<p class="bro" style="border-bottom:brown 1px solid">Reviews</p>
+
+<div>
+    <p class="bro"></p>
+    <div id="rev_worm" class=""></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    const data_rev = {
+        worm:worm
+    }
+
+    //Ajax（非同期通信）
+    axios.get('parts/review.php', {
+        params:data_rev
+    })
+    .then(function (response) {
+        document.querySelector("#rev_worm").innerHTML=response.data;
+    }).catch(function (error) {
+        console.log(error);//通信Error
+    }).then(function () {
+        console.log("Last");//通信OK/Error後に処理を必ずさせたい場合
+    });
+
+</script>
